@@ -11,11 +11,16 @@ body{
   font-family: "Sono", sans-serif;
   padding: 48px 64px;
 }
+.hidden{
+  display: none !important;
+}
+
 /* main layout */
 .container{
   max-width: 1500px;
   margin: 0 auto;
 }
+
 .header{
   margin-bottom: 40px;
   padding:10px;
@@ -24,12 +29,6 @@ body{
   justify-content: space-between;
 }
 
-.fact-form{
-background-color: #78716c;
-margin-bottom: 40px;
-padding: 16px 40px;
-text-align: center;
-}
 
 .main{
   display: grid;
@@ -37,6 +36,11 @@ text-align: center;
   gap: 48px;
 }
 
+@media(max-width: 900px){
+  .main{
+    grid-template-columns: 1fr;
+  }
+}
 /*elements*/
 .logo{
   display: flex;
@@ -68,19 +72,25 @@ h1 {
   background-color: #78716c;
   margin-bottom: 16px;
   padding: 16px 24px;
-  letter-spacing:1px;
+  letter-spacing:-1px;
+  border-radius: 16px;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
   gap: 24px;
 }
 
+@media (max-width: 1200px){
+  .fact{
+    flex-direction: column;
+    align-items: flex-end;
+    gap:12px;
+  }
+}
 .tag{
   text-transform: uppercase;
   font-size: 14px;
   font-family:"Coiny", sans-serif;
-  margin: 30px;
   padding-top:3px;
   padding-left:10px;
   padding-right:10px;
@@ -91,7 +101,7 @@ h1 {
 .vote-buttons{
   margin-left: auto;
   flex-shrink:0;
-  
+
   display: flex;
   gap:8px;
 
@@ -106,6 +116,10 @@ h1 {
   font-family:inherit;
   font-weight: 600;
   cursor: pointer;
+  transition:0.3s;
+}
+.vote-buttons button:hover{
+  background-color: #44403c;
 }
 
 ul{
@@ -158,3 +172,53 @@ ul{
   background-image: none;
 }
 
+/* form*/
+.fact-form{
+  background-color: #78716c;
+  margin-bottom: 40px;
+  padding: 16px 32px;
+  display:flex;
+  align-items: center;
+  gap:16px;
+  border-radius:16px;
+  }
+
+.fact-form input,
+.fact-form select{
+  max-width: 220px;
+  background-color: #a8a29e;
+  border: none;
+  border-radius:100px;
+  padding:16px;
+  font-size:18px;
+  color:inherit;
+  font-family: inherit;
+}
+
+.fact-form input::placeholder{
+  color:#d6d3d1;
+
+}
+
+.fact-form input:first-child{
+  flex-grow: 1;
+}
+
+.fact-form span{
+  font-weight: 600;
+  font-size: 18px;
+  margin-right:18px;
+}
+
+@media (max-width:1000px){
+  body{padding: 32px 48px;}
+
+  .fact-form{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .fact-form input,
+  .fact-form select{
+    width:auto;
+  }
+}

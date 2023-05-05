@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-widthƒ initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,10 +25,10 @@
           />
           <h1>Today I Learned</h1>
         </div>
-        <button class="btn btn-large">Share a fact</button>
+        <button class="btn btn-large btn-open">Share a fact</button>
       </header>
 
-      <form class="fact-form">
+      <form class="fact-form hidden">
         <input type="text" placeholder="Share a fact with the world..." />
         <span>200</span>
         <input type="text" placeholder="Trustworthy spurce..." />
@@ -67,7 +67,7 @@
         </aside>
 
         <section>
-          <ul>
+          <ul class="facts-list">
             <li class="fact">
               <p>
                 React is being developed by Meta (formerly facebook)
@@ -79,7 +79,7 @@
                 >
               </p>
               <span class="tag" style="background-color: #085fea"
-                >#technology#</span
+                >technology</span
               >
               <div class="vote-buttons">
                 <button>👍 24</button>
@@ -99,9 +99,7 @@
                   >(Source)</a
                 >
               </p>
-              <span class="tag" style="background-color: #eab308"
-                >#society#</span
-              >
+              <span class="tag" style="background-color: #eab308">society</span>
               <div class="vote-buttons">
                 <button>👍 11</button>
                 <button>🤯 2</button>
@@ -112,5 +110,7 @@
         </section>
       </main>
     </div>
+
+    <script src="script.js"></script>
   </body>
 </html>
