@@ -31,6 +31,7 @@ const initialFacts = [
     createdIn: 2015,
   },
 ];
+
 const CATEGORIES = [
   { name: "technology", color: "#3b82f6" },
   { name: "science", color: "#16a34a" },
@@ -42,56 +43,54 @@ const CATEGORIES = [
   { name: "news", color: "#8b5cf6" },
 ];
 
-// selecting DOM elements
+// Selecting DOM elements
 const btn = document.querySelector(".btn-open");
 const form = document.querySelector(".fact-form");
 const factsList = document.querySelector(".facts-list");
 
-//create DOM elements: Render facts in list
+// Create DOM elements: Render facts in list
 factsList.innerHTML = "";
 
-//load data from supabase
+// Load data from Supabase
 loadFacts();
 
 async function loadFacts() {
   const res = await fetch(
-    "https://olzaavmdvnmrlthqflxs.supabase.co/rest/v1/facts",
+    "https://hwtkikrqvnsrrpkjrytv.supabase.co/rest/v1/facts",
     {
       headers: {
         apikey:
-          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9semFhdm1kdm5tcmx0aHFmbHhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODMxNDcyMjUsImV4cCI6MTk5ODcyMzIyNX0.XtIjsNbv-jNBeN7a5TTL0R-ty7nB3TbjaZAD0cWmWkE",
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3dGtpa3Jxdm5zcnJwa2pyeXR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg3NTk3ODUsImV4cCI6MTk4NDMzNTc4NX0.l_PGJRds8Lmg17Pn7eqNwFqYWH4rST2gVlTeGCfKTjk",
         authorization:
-          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9semFhdm1kdm5tcmx0aHFmbHhzIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODMxNDcyMjUsImV4cCI6MTk5ODcyMzIyNX0.XtIjsNbv-jNBeN7a5TTL0R-ty7nB3TbjaZAD0cWmWkE",
+          "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh3dGtpa3Jxdm5zcnJwa2pyeXR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg3NTk3ODUsImV4cCI6MTk4NDMzNTc4NX0.l_PGJRds8Lmg17Pn7eqNwFqYWH4rST2gVlTeGCfKTjk",
       },
     }
   );
   const data = await res.json();
   // console.log(data);
-  // const filiteredData = data.filter((fact) => fact.category === "society");
+  // const filteredData = data.filter((fact) => fact.category === "technology");
+
   createFactsList(data);
 }
 
-//factsList.insertAdjacentHTML("afterbegin", "<li>Xinyi</li>");
 function createFactsList(dataArray) {
+  // factsList.insertAdjacentHTML("afterbegin", "<li>Jonas</li>");
+
   const htmlArr = dataArray.map(
     (fact) => `<li class="fact">
     <p>
     ${fact.text}
-    <a
-      class="source"
-      href="${fact.source}"
-      target="_blank"
-      >(Source)</a
-    >
-  </p>
-  <span class="tag" style="background-color: ${
-    CATEGORIES.find((cat) => cat.name === fact.category).color
-  }"
-    >${fact.category}</span
-  >
-    </li>`
+      <a
+        class="source"
+        href="${fact.source}"
+        target="_blank"
+      >(Source)</a>
+    </p>
+    <span class="tag" style="background-color: ${
+      CATEGORIES.find((cat) => cat.name === fact.category).color
+    }">${fact.category}</span>
+  </li>`
   );
-  console.log(htmlArr);
   const html = htmlArr.join("");
   factsList.insertAdjacentHTML("afterbegin", html);
 }
@@ -107,7 +106,132 @@ btn.addEventListener("click", function () {
   }
 });
 
+console.log([7, 64, 6, -23, 11].filter((el) => el > 10));
+console.log([7, 64, 6, -23, 11].find((el) => el > 10));
+
 /*
+let votesInteresting = 23;
+let votesMindlowing = 5;
+const text = "Lisbon is the capital of Portugal";
+
+votesInteresting = votesInteresting + 1;
+votesInteresting++;
+console.log(votesInteresting);
+
+let totalUpvotes = votesInteresting + votesMindlowing;
+console.log("Upvotes:", totalUpvotes);
+
+let votesFalse = 4;
+const isCorrect = votesFalse < totalUpvotes;
+console.log(isCorrect);
+
+console.log(parseInt("24.533ccc"));
+*/
+
+/*
+function calcFactAge(year) {
+  const currentYear = new Date().getFullYear();
+  const age = currentYear - year;
+
+  if (age >= 0) return age;
+  else return `Impossible year. Year needs to be less or equal ${currentYear}`;
+}
+
+const age1 = calcFactAge(2015);
+console.log(age1);
+console.log(calcFactAge(2020));
+console.log(calcFactAge(2037));
+
+// const calcFactAge2 = (year) => 2022 - year;
+const calcFactAge2 = (year) =>
+  year <= new Date().getFullYear()
+    ? new Date().getFullYear() - year
+    : `Impossible year. Year needs to be less or equal ${new Date().getFullYear()}`;
+
+console.log(calcFactAge2(2015));
+console.log(calcFactAge2(2037));
+*/
+
+/*
+let votesInteresting = 20;
+let votesMindlowing = 5;
+
+if (votesInteresting === votesMindlowing) {
+  alert("This fact is equally interesting and mindblowing");
+} else if (votesInteresting > votesMindlowing) {
+  console.log("Intersting fact!");
+} else if (votesInteresting < votesMindlowing) {
+  console.log("Mindblowing fact!!");
+}
+
+// falsy values: 0, '', null, undefined
+// truthy value: everything else...
+if (votesMindlowing) {
+  console.log("MINDBLOWING FACT!!!");
+} else {
+  console.log("Not so special...");
+}
+
+let votesFalse = 7;
+const totalUpvotes = votesInteresting + votesMindlowing;
+
+const message =
+  totalUpvotes > votesFalse
+    ? "The fact is true"
+    : "Might be false, check more sources...";
+// alert(message);
+
+const text = "Lisbon is the capital of Portugal";
+const upperText = text.toUpperCase();
+console.log(upperText);
+
+const str = `The current fact is "${text}". It is ${calcFactAge(
+  2015
+)} years old. It is probably ${
+  totalUpvotes > votesFalse ? "correct" : "not true"
+}.`;
+console.log(str);
+*/
+
+/*
+const fact = ["Lisbon is the capital of Portugal", 2015, true];
+console.log(fact[2]);
+console.log(fact.length);
+console.log(fact[fact.length - 1]);
+
+const [text, createdIn] = fact;
+const newFact = [...fact, "society"];
+console.log(newFact);
+
+const factObj = {
+  text: "Lisbon is the capital of Portugal",
+  category: "society",
+  createdIn: 2015,
+  isCorrect: true,
+  createSummary: function () {
+    return `The fact "${
+      this.text
+    }" is from the category ${this.category.toUpperCase()}`;
+  },
+};
+
+console.log(factObj.text);
+console.log(factObj["text"]);
+
+const { category, isCorrect } = factObj;
+console.log(category);
+console.log(factObj.createSummary());
+
+// [2, 4, 6, 8].forEach(function (el) {
+//   console.log(el);
+// });
+
+// const times10 = [2, 4, 6, 8].map(function (el) {
+//   return el * 10;
+// });
+const times10 = [2, 4, 6, 8].map((el) => el * 10);
+console.log(times10);
+
 const CATEGORIES = [
   { name: "technology", color: "#3b82f6" },
   { name: "science", color: "#16a34a" },
@@ -161,7 +285,7 @@ function calcFactAge(year) {
   const age = currentYear - year;
 
   if (age >= 0) return age;
-  else return `Impossible year, should be less than ${currentYear}`;
+  else return `Impossible year. Year needs to be less or equal ${currentYear}`;
 }
 
 const factAges = initialFacts.map((el) => calcFactAge(el.createdIn));
