@@ -51,17 +51,20 @@ function Counter() {
 function App() {
   //1. define state variable
   const [showForm, setShowForm] = useState(false);
+  const [facts, setFacts] = useState(initialFacts);
 
   return (
     <>
       {/* HEADER */}
       <Header showForm={showForm} setShowForm={setShowForm} />
       {/* 2. use state variable */}
-      {showForm ? <NewFactForm /> : null}
+      {showForm ? (
+        <NewFactForm setFacts={setFacts} setShowForm={setShowForm} />
+      ) : null}
 
       <main className="main">
         <CategoryFilter />
-        <FactList />
+        <FactList facts={facts} />
       </main>
     </>
   );
@@ -98,14 +101,47 @@ const CATEGORIES = [
   { name: "news", color: "#8b5cf6" },
 ];
 
-function NewFactForm() {
+function isValidHttpUrl(string) {
+  let url;
+  try {
+    url = new URL(string);
+  } catch (_) {
+    return false;
+  }
+  return url.protocol === "http:" || url.protocol === "https:";
+}
+
+function NewFactForm({ setFacts, setShowForm }) {
   const [text, setText] = useState("");
-  const [source, setSource] = useState("");
+  const [source, setSource] = useState("http://example.com");
   const [category, setCategory] = useState("");
   const textLength = text.length;
 
   function handleSubmit(e) {
+    //1. prevent browser reload
     e.preventDefault();
+    //2. Check if data valid
+    if (text && isValidHttpUrl(source) && category && textLength <= 200) {
+      //3. create new fact object
+      const newFact = {
+        id: Math.random() * 100000000,
+        text,
+        source,
+        category,
+        votesInteresting: 0,
+        votesMindblowing: 0,
+        votesFalse: 0,
+        createdIn: new Date().getFullYear(),
+      };
+      //4. add new fact to the UP
+      setFacts((facts) => [newFact, ...facts]);
+      //5. reset input fields
+      setText("");
+      setSource("");
+      setCategory("");
+      //6. close form
+      setShowForm(false);
+    }
   }
 
   return (
@@ -158,10 +194,8 @@ function CategoryFilter() {
   );
 }
 
-function FactList() {
+function FactList({ facts }) {
   //temp
-  const facts = initialFacts;
-
   return (
     <section>
       <ul className="facts-list">
