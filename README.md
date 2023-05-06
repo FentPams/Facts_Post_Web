@@ -12,37 +12,37 @@
 #### Overview of the web
 
 <div  align="center">    
-   <img src="./ReadMeGraph/overview.png" width = "120" height = "240" alt="splash_demo" align=center />
+   <img src="./ReadMeGraph/overview.png" width = "500" height = "400" alt="splash_demo" align=center />
 </div>
 
 #### You can share facts from here!
 <div  align="center">    
-   <img src="./ReadMeGraph/upload_facts.png" width = "120" height = "240" alt="splash_demo" align=center /> 
+   <img src="./ReadMeGraph/upload_facts.png" width = "600" height = "70" alt="splash_demo" align=center /> 
 </div>
 
 #### Real-time Facts from database(supabase). Support upvotes or downvotes feature!
 <div  align="center">    
-   <img src="./ReadMeGraph/upvotes_facts.png" width = "120" height = "240" alt="splash_demo" align=center /> 
+   <img src="./ReadMeGraph/upvotes_facts.png" width = "3000" height = "50" alt="splash_demo" align=center /> 
 </div>
 
 #### Filter the facts by category!
 <div  align="center">    
-   <img src="./ReadMeGraph/filter_facts.png" width = "120" height = "240" alt="splash_demo" align=center /> 
+   <img src="./ReadMeGraph/filter_facts.png" width = "600" height = "360" alt="splash_demo" align=center /> 
 </div>
 
 
 #### Responsive UI Design, adjustable to different screen size!
 <div  align="center">    
-   <img src="./ReadMeGraph/responsive_ui1.png" width = "120" height = "240" alt="splash_demo" align=center />
-   <img src="./ReadMeGraph/responsive_ui3.png" width = "120" height = "240" alt="splash_demo" align=center /> 
+   <img src="./ReadMeGraph/responsive_ui1.png" width = "300" height = "300" alt="splash_demo" align=center />
+   <img src="./ReadMeGraph/responsive_ui3.png" width = "280" height = "300" alt="splash_demo" align=center /> 
 </div>
 
 
-### Available Scripts
+#### Available Scripts
 
 In the project directory, you can run:
 
-#### `npm start`
+##### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
@@ -50,16 +50,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-#### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-#### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
